@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int points = 0;
+   
     void Start()
     {
-        GetComponent<Animator>().Play("tr_idle");
+        // test idle animation
+        // GetComponent<Animator>().Play("tr_idle");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void addPoints(int points)
     {
-        
+        this.points = Mathf.Max(0, points);
     }
 }
