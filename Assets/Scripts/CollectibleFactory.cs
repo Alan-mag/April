@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -11,6 +11,19 @@ public class CollectibleFactory : Singleton<CollectibleFactory>
     [SerializeField] private int startingCollectibles = 5;
     [SerializeField] private float minRange = 5.0f;
     [SerializeField] private float maxRange = 50.0f;
+
+    private List<Collectible> liveCollectibles = new List<Collectible>();
+    private Collectible selectedCollectible;
+
+    public List<Collectible> LiveCollectibles
+    {
+        get { return liveCollectibles; } 
+    }
+
+    public Collectible SelectedCollectible
+    {
+        get { return selectedCollectible; }
+    }
 
     public void Awake()
     {
@@ -37,13 +50,18 @@ public class CollectibleFactory : Singleton<CollectibleFactory>
         }
     }
 
+    public void CollectibleWasSelected(Collectible collectible)
+    {
+        selectedCollectible = collectible;
+    }
+
     private void InstantiateCollectible()
     {
         int index = Random.Range(0, availableCollectibles.Length);
         float x = player.transform.position.x + GenerateRange();
         float y = player.transform.position.y + 3.0f;
         float z = player.transform.position.z + GenerateRange();
-        Instantiate(availableCollectibles[index], new Vector3(x, y, z), Quaternion.identity);
+        liveCollectibles.Add(Instantiate(availableCollectibles[index], new Vector3(x, y, z), Quaternion.identity));
     }
 
     private float GenerateRange()
