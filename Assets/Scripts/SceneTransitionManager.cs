@@ -8,7 +8,7 @@ public class SceneTransitionManager : Singleton<SceneTransitionManager>
 
 	private AsyncOperation sceneAsync;
 
-	public void goToScene(string sceneName, List<GameObject> objectsToMove)
+	public void GoToScene(string sceneName, List<GameObject> objectsToMove)
 	{
 
 		StartCoroutine(loadScene(sceneName, objectsToMove));

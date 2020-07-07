@@ -24,6 +24,9 @@ public class WorldSceneManager : FrontierSceneManager
 
     public override void collectibleTapped(GameObject collectible)
     {
-        SceneManager.LoadScene(FrontierConstants.SCENE_PUZZLE, LoadSceneMode.Additive);
+        // SceneManager.LoadScene(FrontierConstants.SCENE_PUZZLE, LoadSceneMode.Additive);
+        List<GameObject> list = new List<GameObject>();
+        list.Add(collectible);
+        SceneTransitionManager.Instance.GoToScene(FrontierConstants.SCENE_PUZZLE, list);
     }
 }
