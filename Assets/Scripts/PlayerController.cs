@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int points = 0;
+    private int points;
    
     void Start()
     {
@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
         // GetComponent<Animator>().Play("tr_idle");
     }
 
-    //public int Points
-    //{
-    //    get { return points;  }
-    //}
+    public int Points
+    {
+        get { return points; }
+    }
 
 
     public void addPoints(int points)

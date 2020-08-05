@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,8 +13,13 @@ public class UIManager : MonoBehaviour
         Assert.IsNotNull(pointsText);
     }
 
-    public void updatePoints(int points)
+    private void Update()
     {
-        pointsText.text = points.ToString();
+        updatePoints();
+    }
+
+    public void updatePoints()
+    {
+        pointsText.text = GameManager.Instance.PlayerPoints.ToString() + "/" + "100";
     }
 }

@@ -24,8 +24,14 @@ public class Collectible : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log(GameManager.Instance.CurrentScene.name);
+        
+        if (GameManager.Instance.CurrentScene.name == "Puzzle")
+        {
+            GameManager.Instance.UpdatePlayerPoints(1);
+        }
         FrontierSceneManager[] managers = FindObjectsOfType<FrontierSceneManager>();
-        foreach(FrontierSceneManager frontierSceneManger in managers)
+        foreach (FrontierSceneManager frontierSceneManger in managers)
         {
             if (frontierSceneManger.gameObject.activeSelf)
             {
