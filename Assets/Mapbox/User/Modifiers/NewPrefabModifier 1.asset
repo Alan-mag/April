@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1252790098, guid: 448d62fcada76fd4ab5702190add98fd, type: 3}
-  m_Name: EditorStates
+  m_Script: {fileID: 11500000, guid: dd8aacc1880ff504d9531b4d61c86458, type: 3}
+  m_Name: NewPrefabModifier 1
   m_EditorClassIdentifier: 
-  GeneralStates:
-    LoadedProjectGUID:
-      valueInternal: 1e6da758863214ce7bc35add917bff17
-    RecentlyOpenedProjectGUIDsList:
-    - valueInternal: 1e6da758863214ce7bc35add917bff17
+  Active: 1
+  _options:
+    prefab: {fileID: 0}
+    scaleDownWithWorld: 1
