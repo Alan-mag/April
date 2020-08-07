@@ -9,7 +9,7 @@ public class Collectible : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this); // not sure how to handle maintaining box position, but commenting this out for now fixes too many boxes
     }
 
     public float SpawnRate
@@ -24,8 +24,6 @@ public class Collectible : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(GameManager.Instance.CurrentScene.name);
-        
         if (GameManager.Instance.CurrentScene.name == "Puzzle")
         {
             GameManager.Instance.UpdatePlayerPoints(1);
