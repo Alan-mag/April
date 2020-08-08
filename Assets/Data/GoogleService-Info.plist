@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>797056926502-3d6gide5400t47il1r69munhahj419l4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.797056926502-3d6gide5400t47il1r69munhahj419l4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBcd0_EByx4ET82uGAnk0EfKgTQn0ZxVm4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>797056926502</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alan.april</string>
+	<key>PROJECT_ID</key>
+	<string>april-785ab</string>
+	<key>STORAGE_BUCKET</key>
+	<string>april-785ab.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:797056926502:ios:b85e1ab22e8c78d2cff7e7</string>
+	<key>DATABASE_URL</key>
+	<string>https://april-785ab.firebaseio.com</string>
+</dict>
+</plist>

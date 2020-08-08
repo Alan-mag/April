@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "797056926502-3d6gide5400t47il1r69munhahj419l4.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcd0_EByx4ET82uGAnk0EfKgTQn0ZxVm4"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:797056926502:ios:b85e1ab22e8c78d2cff7e7", 
+        "android_client_info": {
+          "package_name": "com.alan.april"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "april-785ab.appspot.com", 
+    "project_id": "april-785ab", 
+    "firebase_url": "https://april-785ab.firebaseio.com", 
+    "project_number": "797056926502"
+  }
+}
