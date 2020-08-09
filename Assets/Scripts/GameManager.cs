@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private PlayerController currentPlayer;
-    private int playerPoints;
+	public FirebaseInit firebaseInit = null;
+	private int playerPoints;
+	private bool setInitialPoints;
+
+	public event Action onUpdatePlayerPoints;
 
     public PlayerController CurrentPlayer
     {
@@ -16,7 +21,11 @@ public class GameManager : Singleton<GameManager>
 
     public void UpdatePlayerPoints(int points)
     {
-        playerPoints += points;
+        if (onUpdatePlayerPoints != null)
+		{
+			playerPoints += points;
+			onUpdatePlayerPoints();
+		}
     }
 
     public int PlayerPoints
@@ -31,6 +40,18 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
-        Assert.IsNotNull(currentPlayer);   
-    }
+        Assert.IsNotNull(currentPlayer);
+		firebaseInit = GetComponent<FirebaseInit>();
+	}
+
+	private void Update()
+	{
+		if (!setInitialPoints && firebaseInit.InitialPoints != -1)
+		{
+			playerPoints += firebaseInit.InitialPoints;
+			setInitialPoints = true;
+			onUpdatePlayerPoints();
+		}
+	}
+
 }

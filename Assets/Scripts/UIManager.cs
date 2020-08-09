@@ -11,15 +11,22 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Assert.IsNotNull(pointsText);
-    }
+		GameManager.Instance.onUpdatePlayerPoints += UpdatePointsText;
+	}
 
-    private void Update()
-    {
-        updatePoints();
-    }
+    private void Start()
+	{
+		UpdatePointsText();
+	}
 
-    public void updatePoints()
+	//private void OnDestroy()
+	//{
+	//	GameManager.Instance.onUpdatePlayerPoints -= UpdatePointsText;
+	//}
+
+	public void UpdatePointsText()
     {
-        pointsText.text = GameManager.Instance.PlayerPoints.ToString() + "/" + "100";
+        if (pointsText)
+            pointsText.text = GameManager.Instance.PlayerPoints.ToString() + "/" + "100";
     }
 }

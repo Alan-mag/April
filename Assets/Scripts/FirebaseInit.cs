@@ -1,14 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
 using Firebase.Analytics;
 using UnityEngine;
+using System;
 
 public class FirebaseInit : MonoBehaviour
 {
-    void Start()
+	private int initialPoints = -1;
+
+	public int InitialPoints { get { return initialPoints; } }
+
+	void Start()
     {
         // Set up the Editor before calling into the realtime database.
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://april-785ab.firebaseio.com/");
@@ -17,7 +22,7 @@ public class FirebaseInit : MonoBehaviour
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
 
         FirebaseDatabase.DefaultInstance
-        .GetReference("instrument")
+        .GetReference("player_score")
         .GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
@@ -26,15 +31,21 @@ public class FirebaseInit : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
-                DataSnapshot snapshot = task.Result;
-                // Do something with snapshot...
-                Debug.Log(snapshot);
+				var snapshot = task.Result;
+                initialPoints = Convert.ToInt32(snapshot.Value);
+
+                //Dictionary<string, object> dict = new Dictionary<string, object>();
+                //foreach (DataSnapshot child in snapshot.Children)
+                //{
+                //    dict.Add(child.Key, child.Value);
+                //}
+                //Debug.Log(dict.Values);
+                //foreach(KeyValuePair<string, object> o in dict)
+                //{
+                //    Debug.Log(o.Value);
+                //}
             }
         });
-
-        //FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        //{
-        //    FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
-        //});
     }
+
 }
