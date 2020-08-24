@@ -48,4 +48,16 @@ public class FirebaseInit : MonoBehaviour
         });
     }
 
+    public void SavePoints(int points)
+    {
+        Debug.Log(points);
+        // Set up the Editor before calling into the realtime database.
+        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://april-785ab.firebaseio.com/");
+
+        // Get the root reference location of the database.
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        reference.Child("player_score").SetValueAsync(points.ToString());
+    }
+
 }

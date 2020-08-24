@@ -24,7 +24,8 @@ public class GameManager : Singleton<GameManager>
         if (onUpdatePlayerPoints != null)
 		{
 			playerPoints += points;
-			onUpdatePlayerPoints();
+            firebaseInit.SavePoints(playerPoints);
+            onUpdatePlayerPoints();
 		}
     }
 
